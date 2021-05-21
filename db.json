@@ -20,6 +20,27 @@
                     "carbs": 90
                 }
             ]
+        },
+        {
+            "id": 1,
+            "name": "Chicken Steak",
+            "image": "ExampleImage.jpg",
+            "preparationTime": 30,
+            "description": "Chicken Steak Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+            "Ingredients": [
+                "chicken",
+                "Honey",
+                "Olive oil",
+                "eggs"
+            ],
+            "nutritionaValues": [
+                {
+                    "kcal": 350,
+                    "protein": 15,
+                    "fats": 25,
+                    "carbs": 90
+                }
+            ]
         }
     ]
 }

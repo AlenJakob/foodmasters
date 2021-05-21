@@ -12,15 +12,15 @@
 </template>
 
 <script>
-import { useStore } from "vuex";
+// import { useStore } from "vuex";
 import { defineComponent, onMounted} from "vue";
 import { categories } from "../assets/categories";
 export default defineComponent({
   setup() {
-    const store = useStore();
+    // const store = useStore();
     onMounted(() => {
-      console.log(categories);
-      console.log(store);
+      // console.log(categories);
+      // console.log(store);
     });
 
     return {

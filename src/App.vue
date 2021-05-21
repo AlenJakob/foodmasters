@@ -1,14 +1,21 @@
 <template >
   <div class="container">
     <CategoriesNav />
+    <Recipes />
+    <div>
+      Icons made by
+      <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
   </div>
 </template>
 
 <script>
 import CategoriesNav from "./components/CategoriesNav.vue";
+import Recipes from "./components/Recipes.vue";
 import { defineComponent } from "vue";
 export default defineComponent({
-  components: { CategoriesNav },
+  components: { CategoriesNav, Recipes },
 });
 </script>
 

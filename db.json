@@ -6,13 +6,29 @@
             "image": "ExampleImage.jpg",
             "preparationTime": 30,
             "description": "Chicken Steak Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
-            "Ingredients": [
-                "chicken",
-                "Honey",
-                "Olive oil",
-                "eggs"
+            "ingredients": [
+                {
+                    "name": "chicken",
+                    "value": "1 chicken Breat piece"
+                },
+                {
+                    "name": "honey",
+                    "value": "1 Tbsp"
+                },
+                {
+                    "name": "Oliveoil",
+                    "value": "1 Tbsp"
+                },
+                {
+                    "name": "eggs",
+                    "value": "2 Pieces"
+                },
+                {
+                    "name": "butter",
+                    "value": "2 Pieces"
+                }
             ],
-            "nutritionaValues": [
+            "nutritionalValues": [
                 {
                     "kcal": 350,
                     "protein": 15,
@@ -27,13 +43,29 @@
             "image": "ExampleImage.jpg",
             "preparationTime": 30,
             "description": "Chicken Steak Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
-            "Ingredients": [
-                "chicken",
-                "Honey",
-                "Olive oil",
-                "eggs"
+            "ingredients": [
+                {
+                    "name": "chicken",
+                    "value": "1 chicken Breat piece"
+                },
+                {
+                    "name": "honey",
+                    "value": "1 Tbsp"
+                },
+                {
+                    "name": "Oliveoil",
+                    "value": "1 Tbsp"
+                },
+                {
+                    "name": "eggs",
+                    "value": "2 Pieces"
+                },
+                {
+                    "name": "butter",
+                    "value": "2 Pieces"
+                }
             ],
-            "nutritionaValues": [
+            "nutritionalValues": [
                 {
                     "kcal": 350,
                     "protein": 15,

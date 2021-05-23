@@ -29,8 +29,7 @@ body {
 }
 #app {
   box-sizing: border-box;
-  min-height: calc(100vh - 10px);
-  box-shadow: inset 0 0 0 15px #fff;
+  box-shadow: inset 0 0 0 7px #fff;
   font-family: "Roboto", sans-serif;
   padding: 0;
   margin: 0;
@@ -39,7 +38,7 @@ body {
   text-align: center;
 }
 .container {
-  padding: 2em;
+  overflow:hidden;
 }
 ul {
   list-style: none;

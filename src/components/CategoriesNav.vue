@@ -13,7 +13,7 @@
 
 <script>
 // import { useStore } from "vuex";
-import { defineComponent, onMounted} from "vue";
+import { defineComponent, onMounted } from "vue";
 import { categories } from "../assets/categories";
 export default defineComponent({
   setup() {
@@ -33,6 +33,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .list {
+  margin: 0;
+  margin-left: 1em;
   font-weight: 500;
   color: #969696;
   display: flex;
@@ -49,6 +51,7 @@ export default defineComponent({
   }
 }
 .logo {
+  margin: 0.3em 0 0 0.5em;
   transition: 0.3s;
   cursor: pointer;
   display: flex;

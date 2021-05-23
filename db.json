@@ -2,8 +2,8 @@
     "recipes": [
         {
             "id": 1,
-            "name": "Chicken Steak",
-            "image": "ExampleImage.jpg",
+            "name": "Chicken steak",
+            "image": "chicken_steak",
             "preparationTime": 30,
             "description": "Chicken Steak Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
             "ingredients": [
@@ -16,16 +16,16 @@
                     "value": "1 Tbsp"
                 },
                 {
-                    "name": "Oliveoil",
+                    "name": "Olive oil",
                     "value": "1 Tbsp"
                 },
                 {
-                    "name": "eggs",
+                    "name": "carrot",
                     "value": "2 Pieces"
                 },
                 {
-                    "name": "butter",
-                    "value": "2 Pieces"
+                    "name": "arugula",
+                    "value": "1 Pieces"
                 }
             ],
             "nutritionalValues": [
@@ -38,31 +38,142 @@
             ]
         },
         {
-            "id": 1,
-            "name": "Chicken Steak",
-            "image": "ExampleImage.jpg",
+            "id": 2,
+            "name": "Caesar salad",
+            "image": "caesar_salad",
             "preparationTime": 30,
-            "description": "Chicken Steak Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+            "description": "Classic Caesar Salad with crisp homemade croutons and a light caesar dressing – for when you want to impress your dinner guests.",
             "ingredients": [
                 {
                     "name": "chicken",
                     "value": "1 chicken Breat piece"
                 },
                 {
-                    "name": "honey",
+                    "name": "salad",
+                    "value": "1 piece"
+                },
+                {
+                    "name": "Olive oil",
                     "value": "1 Tbsp"
                 },
                 {
-                    "name": "Oliveoil",
+                    "name": "salt",
                     "value": "1 Tbsp"
                 },
                 {
-                    "name": "eggs",
-                    "value": "2 Pieces"
+                    "name": "garlic",
+                    "value": "1 piece"
                 },
                 {
-                    "name": "butter",
-                    "value": "2 Pieces"
+                    "name": "mayonnaise",
+                    "value": "1 Tbsp"
+                }
+            ],
+            "nutritionalValues": [
+                {
+                    "kcal": 350,
+                    "protein": 15,
+                    "fats": 25,
+                    "carbs": 90
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Crab Claws",
+            "image": "Crab_Claws",
+            "preparationTime": 30,
+            "description": "Chicken Steak Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+            "ingredients": [
+                {
+                    "name": "garlic",
+                    "value": "1 piece"
+                },
+                {
+                    "name": "chili-pepper",
+                    "value": "1 piece"
+                },
+                {
+                    "name": "crab",
+                    "value": "4 pieces"
+                },
+                {
+                    "name": "ginger",
+                    "value": "0.5 piece"
+                },
+                {
+                    "name": "pasta",
+                    "value": "200 gram"
+                }
+            ],
+            "nutritionalValues": [
+                {
+                    "kcal": 350,
+                    "protein": 15,
+                    "fats": 25,
+                    "carbs": 90
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Grilled Salmon",
+            "image": "Grilled_Salmon",
+            "preparationTime": 30,
+            "description": "Grilled Salmon Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+            "ingredients": [
+                {
+                    "name": "salmon",
+                    "value": "1 chicken Breat piece"
+                },
+                {
+                    "name": "asparagus",
+                    "value": "5 piece"
+                },
+                {
+                    "name": "Olive oil",
+                    "value": "1 Tbsp"
+                },
+                {
+                    "name": "lemon",
+                    "value": "2 drops"
+                }
+            ],
+            "nutritionalValues": [
+                {
+                    "kcal": 350,
+                    "protein": 15,
+                    "fats": 25,
+                    "carbs": 90
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Spaghetti",
+            "image": "Spaghetti",
+            "preparationTime": 30,
+            "description": "Grilled Salmon Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+            "ingredients": [
+                {
+                    "name": "tomato",
+                    "value": "3 pieces"
+                },
+                {
+                    "name": "spaghetti",
+                    "value": "200 gram"
+                },
+                {
+                    "name": "Olive oil",
+                    "value": "1 Tbsp"
+                },
+                {
+                    "name": "minced-meat",
+                    "value": "200 gram"
+                },
+                {
+                    "name": "water",
+                    "value": "200 gram"
                 }
             ],
             "nutritionalValues": [

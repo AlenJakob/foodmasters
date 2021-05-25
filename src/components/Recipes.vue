@@ -24,7 +24,9 @@
           <ul class="ingredients__list">
             <li
               class="ingredients__elem"
-              v-for="{ name, value } in prod.ingredients"
+              v-for="{ name, value } in state
+                ? prod.ingredients.slice(0, 2)
+                : prod.ingredients"
               :key="value"
             >
               <img
@@ -39,7 +41,9 @@
               </div>
             </li>
           </ul>
-          <button class="button">View all ingredients</button>
+          <button class="button" @click="state = !state">
+            View all ingredients
+          </button>
         </div>
         <div class="nutrition">
           <ul class="nut__list">
@@ -72,7 +76,11 @@
             >
               Add to favorites
               <span
-                ><i :class="[heart ? 'far fa-heart' : 'fas fa-heart']"></i
+                ><i
+                  :class="[
+                    isFavorite(prod.id) ? 'fas fa-heart' : 'far fa-heart',
+                  ]"
+                ></i
               ></span>
             </button>
           </div>
@@ -84,35 +92,38 @@
           alt="steak"
         />
       </div>
-      <h1>{{ favoriteRecipes }}</h1>
     </li>
   </ul>
 </template>
 
 <script>
 import getRecipes from "@/composables/getRecipes";
-import { onMounted, computed } from "vue";
+import { onMounted, computed, ref } from "vue";
 export default {
   setup() {
     const {
-      products,
+      recipes,
       fetchRecipes,
       addToFavorite,
       favoriteRecipes,
     } = getRecipes();
 
+    let state = ref(true);
+
+    const isFavorite = (id) => {
+      return favoriteRecipes.value.find((rec) => rec.id === id);
+    };
+
     onMounted(() => {
-      console.log("from mounted", products.value);
+      console.log("from mounted", recipes.value);
 
       console.log(favoriteRecipes.value);
     });
     return {
-      heart: computed((id) => {
-        return id;
-        // favoriteRecipes.value.includes(id) ? "far fa-heart" : "fas fa-heart";
-      }),
-      product: computed(() => products.value[0]),
-      products: computed(() => products.value),
+      state,
+      isFavorite,
+      product: computed(() => recipes.value[0]),
+      products: computed(() => recipes.value),
       fetchRecipes,
       addToFavorite,
       favoriteRecipes,
@@ -253,7 +264,7 @@ h1 {
 .image__recipe {
   position: absolute;
   right: -250px;
-  top: 15%;
+  top: 100px;
   & img {
     object-fit: contain;
     width: 500px;

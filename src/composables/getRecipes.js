@@ -1,23 +1,21 @@
-// import { find } from "core-js/core/array";
+
 import { ref } from "vue";
 import db from "../../db.json"
 export default function getRecipes() {
     // const loading = ref(false)
-    const products = ref([])
-    const favoriteRecipes = ref([{ id: 1 }])
+    const recipes = ref([])
+    const favoriteRecipes = ref([])
 
     console.log(db.recipes)
-    products.value.push(...db.recipes)
+    recipes.value.push(...db.recipes)
 
     function addToFavorite(givenId) {
 
         let findId = favoriteRecipes.value.find((e) => e.id === givenId);
 
         if (findId) {
-            console.log("Already added to Favorites")
             favoriteRecipes.value = favoriteRecipes.value.filter(recipe => recipe.id !== givenId)
         } else if (!findId) {
-            console.log("added to Favorites")
             favoriteRecipes.value.push({ id: givenId });
         }
 
@@ -35,7 +33,7 @@ export default function getRecipes() {
 
 
     return {
-        products,
+        recipes,
         fetchRecipes,
         favoriteRecipes,
         addToFavorite

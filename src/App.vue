@@ -38,7 +38,7 @@ body {
   text-align: center;
 }
 .container {
-  overflow:hidden;
+  overflow: hidden;
 }
 ul {
   list-style: none;
@@ -47,5 +47,19 @@ ul {
 .button {
   background-color: #408eba;
   color: #fff;
+}
+.button {
+  width: 180px;
+  font-weight: 500;
+  padding: 0.7em 1.5em;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  &:hover {
+    background-color: transparent;
+    color: #408eba;
+    border: 2px solid #408eba;
+  }
 }
 </style>

@@ -6,51 +6,28 @@
   >
     <li
       class="recipe carousel-cell"
-      v-for="prod in products"
-      :key="prod.id"
-      :data-id="prod.id"
+      v-for="recipe in recipes"
+      :key="recipe.id"
+      :data-id="recipe.id"
     >
       <div class="content">
         <div class="description">
           <div class="title title-header">
-            <h3>{{ prod.name }}</h3>
+            <h3>{{ recipe.name }}</h3>
           </div>
           <p class="content">
-            {{ prod.description }}
+            {{ recipe.description }}
           </p>
         </div>
-        <div class="ingredients">
-          <h3 class="title">Ingredients</h3>
-          <ul class="ingredients__list">
-            <li
-              class="ingredients__elem"
-              v-for="{ name, value } in state
-                ? prod.ingredients.slice(0, 2)
-                : prod.ingredients"
-              :key="value"
-            >
-              <img
-                class="elem-img"
-                :src="require('@/assets/images/icons/' + name + '.png')"
-                alt="icon "
-              />
 
-              <div class="elem-info">
-                <span class="name">{{ name }}</span>
-                <span class="desc">{{ value }}</span>
-              </div>
-            </li>
-          </ul>
-          <button class="button" @click="state = !state">
-            View all ingredients
-          </button>
-        </div>
+        <Ingredients :ingredients="recipe.ingredients" />
+
         <div class="nutrition">
           <ul class="nut__list">
             <h3 class="nut-title title">Nutritional Values</h3>
             <li
               class="nut__elem"
-              v-for="{ kcal, protein, fats, carbs } in prod.nutritionalValues"
+              v-for="{ kcal, protein, fats, carbs } in recipe.nutritionalValues"
               :key="kcal"
             >
               <div class="kcal nut-val">
@@ -71,14 +48,14 @@
             <button class="button">Recipe</button>
             <button
               class="button"
-              @click="addToFavorite(prod.id)"
-              :data-id="prod.id"
+              @click="addToFavorite(recipe.id)"
+              :data-id="recipe.id"
             >
               Add to favorites
               <span
                 ><i
                   :class="[
-                    isFavorite(prod.id) ? 'fas fa-heart' : 'far fa-heart',
+                    isFavorite(recipe.id) ? 'fas fa-heart' : 'far fa-heart',
                   ]"
                 ></i
               ></span>
@@ -88,7 +65,7 @@
       </div>
       <div class="image__recipe">
         <img
-          :src="require('@/assets/images/foods/' + prod.image + '.png')"
+          :src="require('@/assets/images/foods/' + recipe.image + '.png')"
           alt="steak"
         />
       </div>
@@ -97,9 +74,13 @@
 </template>
 
 <script>
+import Ingredients from "./info/Ingredients";
 import getRecipes from "@/composables/getRecipes";
-import { onMounted, computed, ref } from "vue";
-export default {
+import { onMounted, computed, ref, defineComponent } from "vue";
+export default defineComponent({
+  components: {
+    Ingredients,
+  },
   setup() {
     const {
       recipes,
@@ -122,14 +103,13 @@ export default {
     return {
       state,
       isFavorite,
-      product: computed(() => recipes.value[0]),
-      products: computed(() => recipes.value),
+      recipes: computed(() => recipes.value),
       fetchRecipes,
       addToFavorite,
       favoriteRecipes,
     };
   },
-};
+});
 </script>
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
@@ -172,27 +152,17 @@ export default {
   }
 }
 .description,
-.nut__list,
-.button {
+.nut__list {
   margin-left: 1em;
+}
+.button {
+  margin: 0 0 1em 1em;
 }
 .nut__list {
   & .nut-title {
     color: #969696;
     font-size: 1.5em;
     margin-bottom: 0;
-  }
-}
-
-.ingredients {
-  & .button {
-    margin-bottom: 1em;
-  }
-  & .title {
-    margin: 0;
-    margin-left: 0.6em;
-    font-size: 1.5em;
-    color: #969696;
   }
 }
 
@@ -209,56 +179,6 @@ export default {
 }
 h1 {
   color: Red;
-}
-.elem-img {
-  max-width: 32px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  border: 1px solid white;
-  padding: 1em 0.9em;
-  padding: 0.7em 0.6em;
-  border-radius: 7px;
-}
-.elem-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 1em;
-  & .name {
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: capitalize;
-  }
-  & .desc {
-    color: #969696;
-    font-size: 0.8em;
-  }
-}
-.ingredients__elem {
-  min-width: 150px;
-  flex-grow: 1;
-  flex-basis: 25%;
-  margin: 0.7em 0.2em;
-  display: flex;
-}
-.ingredients__list {
-  max-width: 50%;
-  margin: 0 0 1em 1em;
-  display: flex;
-  flex-wrap: wrap;
-}
-.button {
-  width: 180px;
-  font-weight: 500;
-  padding: 0.7em 1.5em;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  border: 2px solid transparent;
-  &:hover {
-    background-color: transparent;
-    color: #408eba;
-    border: 2px solid #408eba;
-  }
 }
 
 .image__recipe {

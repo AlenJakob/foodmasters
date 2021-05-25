@@ -4,10 +4,17 @@
     data-flickity='{"groupCells": true,"wrapAround": true,"fullscreen": true, "percentPosition": false,
 "prevNextButtons": false,"pageDots": false, "freeScroll": false}'
   >
-    <li class="recipe carousel-cell" v-for="prod in products" :key="prod.id">
+    <li
+      class="recipe carousel-cell"
+      v-for="prod in products"
+      :key="prod.id"
+      :data-id="prod.id"
+    >
       <div class="content">
         <div class="description">
-          <h3 class="title">{{ prod.name }}</h3>
+          <div class="title title-header">
+            <h3>{{ prod.name }}</h3>
+          </div>
           <p class="content">
             {{ prod.description }}
           </p>
@@ -58,7 +65,16 @@
           </ul>
           <div class="nut__buttons">
             <button class="button">Recipe</button>
-            <button class="button">Add to favorites</button>
+            <button
+              class="button"
+              @click="addToFavorite(prod.id)"
+              :data-id="prod.id"
+            >
+              Add to favorites
+              <span
+                ><i :class="[heart ? 'far fa-heart' : 'fas fa-heart']"></i
+              ></span>
+            </button>
           </div>
         </div>
       </div>
@@ -68,6 +84,7 @@
           alt="steak"
         />
       </div>
+      <h1>{{ favoriteRecipes }}</h1>
     </li>
   </ul>
 </template>
@@ -77,14 +94,28 @@ import getRecipes from "@/composables/getRecipes";
 import { onMounted, computed } from "vue";
 export default {
   setup() {
-    const { products } = getRecipes();
+    const {
+      products,
+      fetchRecipes,
+      addToFavorite,
+      favoriteRecipes,
+    } = getRecipes();
 
     onMounted(() => {
-      console.log(products.value);
+      console.log("from mounted", products.value);
+
+      console.log(favoriteRecipes.value);
     });
     return {
+      heart: computed((id) => {
+        return id;
+        // favoriteRecipes.value.includes(id) ? "far fa-heart" : "fas fa-heart";
+      }),
       product: computed(() => products.value[0]),
       products: computed(() => products.value),
+      fetchRecipes,
+      addToFavorite,
+      favoriteRecipes,
     };
   },
 };
@@ -92,7 +123,8 @@ export default {
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@300;400;500;700&display=swap");
-.title {
+.title,
+.title h3 {
   font-family: "Arima Madurai", cursive;
 }
 .nut__buttons {
@@ -123,7 +155,7 @@ export default {
   }
 }
 .description {
-  & .title {
+  & .title h3 {
     font-size: 24px;
     margin: 0.1em 0;
   }
@@ -153,6 +185,17 @@ export default {
   }
 }
 
+.title-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & .fa-heart {
+    margin: 0 0.2em;
+    &:last-child {
+      margin-right: unset;
+    }
+  }
+}
 h1 {
   color: Red;
 }

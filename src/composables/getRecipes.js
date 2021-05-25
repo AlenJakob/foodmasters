@@ -1,13 +1,29 @@
+// import { find } from "core-js/core/array";
 import { ref } from "vue";
 import db from "../../db.json"
 export default function getRecipes() {
     // const loading = ref(false)
     const products = ref([])
+    const favoriteRecipes = ref([{ id: 1 }])
 
     console.log(db.recipes)
     products.value.push(...db.recipes)
 
+    function addToFavorite(givenId) {
+
+        let findId = favoriteRecipes.value.find((e) => e.id === givenId);
+
+        if (findId) {
+            console.log("Already added to Favorites")
+            favoriteRecipes.value = favoriteRecipes.value.filter(recipe => recipe.id !== givenId)
+        } else if (!findId) {
+            console.log("added to Favorites")
+            favoriteRecipes.value.push({ id: givenId });
+        }
+
+    }
     async function fetchRecipes() {
+        console.log("TESTT")
         // loading.value = true
         // products.value = await fetchProduct(params)
         // loading.value = false
@@ -16,9 +32,13 @@ export default function getRecipes() {
     //     fetch("https://swapi.dev/api/people/1")
     //         .then(res => res.json()).then(data=> data)
     // }
+
+
     return {
         products,
-        fetchRecipes
+        fetchRecipes,
+        favoriteRecipes,
+        addToFavorite
 
     }
 }
